@@ -15,7 +15,7 @@ process.stdin.on("data", buffer => {
       if (days == 0 && parseInt(data) <= 31 && parseInt(data) > 0) {
         days = data;
         child_process = require("child_process").spawn("node", [
-          "random_attendance_sheet.js",
+          `${__dirname}\\random_attendance_sheet.js`,
           "-d",
           days
         ]);
@@ -31,7 +31,7 @@ process.stdin.on("data", buffer => {
       if (refreshflag) {
         child_process.kill();
         child_process = require("child_process").spawn("node", [
-          "random_attendance_sheet.js",
+          `${__dirname}\\random_attendance_sheet.js`,
           "-d",
           days
         ]);
@@ -68,9 +68,9 @@ process.stdin.on("data", buffer => {
       child_process.stdout.on("error", err => {
         console.log(err);
       });
-      child_process.stderr.on("data", (data) => {
-        console.log(data.toString())
-      })
+      child_process.stderr.on("data", data => {
+        console.log(data.toString());
+      });
     }
   }
 });

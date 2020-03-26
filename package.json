@@ -2,8 +2,10 @@
   "name": "random-attendance-sheet",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "bin": "index.js",
+  "pkg": {
+    "scripts": ["random_attendance_sheet.js"]
+  },
   "scripts": {
     "build": "pkg .",
     "start": "node index.js"
